@@ -37,6 +37,7 @@ public class ClinicPatientController {
     @GetMapping( value = ResourceReference.ALL, produces = {MediaType.APPLICATION_JSON_VALUE})
     public ResponseWrapper<List<Patient>> getAllPatients(){
         List<Patient> response = patientService.getAllPatients();
+        System.out.println(response);
         return new ResponseWrapper<>(new Metadata(true,"Provides all patients"),response);
     }
 

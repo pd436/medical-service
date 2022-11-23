@@ -2,14 +2,13 @@ package com.medical.model;
 
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import org.hibernate.annotations.Type;
+import lombok.*;
 
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name="patient", schema= "DMSD_MEDICAL")
@@ -46,6 +45,9 @@ public class Patient implements Serializable {
     @Column(name="dob")
     @JsonFormat(pattern="MM/dd/yyyy")
     private Date dob;
+
+    @OneToMany(mappedBy = "patient")
+    private Set<PatientIllness> patientIllness = new HashSet<>();
 
 
 }
