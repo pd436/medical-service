@@ -1,0 +1,16 @@
+com/medical/constants/ResourceReference.class
+com/medical/vo/Test.class
+com/medical/vo/Metadata.class
+com/medical/controller/ClinicPatientController.class
+com/medical/model/Patient.class
+com/medical/service/ClinicPatientService.class
+com/medical/Application.class
+com/medical/controller/ClinicEmployeeController.class
+com/medical/model/Occupation.class
+com/medical/service/impl/ClinicEmployeeServiceImpl.class
+com/medical/repository/ClinicEmployeeRepository.class
+com/medical/service/impl/ClinicPatientServiceImpl.class
+com/medical/service/ClinicEmployeeService.class
+com/medical/vo/ResponseWrapper.class
+com/medical/repository/ClinicPatientRepository.class
+com/medical/model/ClinicEmployee.class
