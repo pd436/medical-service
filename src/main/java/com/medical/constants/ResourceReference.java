@@ -11,6 +11,13 @@ public interface ResourceReference {
 	static final String CREATE = "/create";
 
 	static final String ALL = "/all";
-	
+
+	static final String ID = "/id";
+
+	static final String IDS = "/ids";
+
+	static final String ILLNESS = "/illness";
+
+
 	
 }

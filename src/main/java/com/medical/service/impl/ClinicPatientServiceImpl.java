@@ -6,11 +6,8 @@ import com.medical.service.ClinicPatientService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.List;
-import java.util.Locale;
+import java.util.Optional;
 
 @Service
 public class ClinicPatientServiceImpl implements ClinicPatientService {
@@ -28,4 +25,11 @@ public class ClinicPatientServiceImpl implements ClinicPatientService {
     public List<Patient> getAllPatients() {
         return patientRepository.findAll();
     }
+
+    @Override
+    public Optional<Patient> getPatientById(Long id) {
+        return patientRepository.findById(id);
+    }
+
+
 }

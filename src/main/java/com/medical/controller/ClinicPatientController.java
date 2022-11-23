@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.text.ParseException;
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping(value = ResourceReference.PATIENT)
@@ -28,17 +29,21 @@ public class ClinicPatientController {
     @PostMapping(value = ResourceReference.CREATE, consumes = MediaType.APPLICATION_JSON_VALUE,
             produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseWrapper<Patient> addPatient(@RequestBody Patient patient) {
-        System.out.println(patient);
-        Patient response = patientService.addPatient(patient);
+        Patient response = this.patientService.addPatient(patient);
         return new ResponseWrapper<>(new Metadata(true,"Provides created patient"),response);
     }
 
 
     @GetMapping( value = ResourceReference.ALL, produces = {MediaType.APPLICATION_JSON_VALUE})
     public ResponseWrapper<List<Patient>> getAllPatients(){
-        List<Patient> response = patientService.getAllPatients();
-        System.out.println(response);
+        List<Patient> response = this.patientService.getAllPatients();
         return new ResponseWrapper<>(new Metadata(true,"Provides all patients"),response);
+    }
+
+    @PostMapping( value = ResourceReference.ID, produces = {MediaType.APPLICATION_JSON_VALUE})
+    public ResponseWrapper<Patient> getPatientById(@RequestBody Patient patient){
+        Optional<Patient> response = this.patientService.getPatientById(Long.valueOf((patient.getPatientId())));
+        return new ResponseWrapper<>(new Metadata(true,"Provides patient information"),response.get());
     }
 
 }

@@ -3,8 +3,8 @@ package com.medical.model;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 import org.hibernate.annotations.Type;
-
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -14,12 +14,14 @@ import java.util.Set;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class Illness {
+public class Illness implements Serializable {
+
+    private static final long serialVersionUID = 1L;
 
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
     @Column(name = "illness_id")
-    private Integer illnessId;
+    private Long illnessId;
 
     @Column(name="code")
     private Integer  code;
@@ -32,6 +34,7 @@ public class Illness {
     private Boolean  reqHospitalization;
 
     @OneToMany(mappedBy = "illness")
+    @JsonIgnore
     private Set<PatientIllness> patientIllness = new HashSet<>();
 
 }

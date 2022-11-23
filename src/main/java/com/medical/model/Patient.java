@@ -25,7 +25,7 @@ public class Patient implements Serializable {
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
     @Column(name = "patient_id")
-    private Integer patientId;
+    private Long patientId;
 
     @Column(name="first_name")
     private String  firstName;
@@ -49,15 +49,11 @@ public class Patient implements Serializable {
     @JsonFormat(pattern="MM/dd/yyyy")
     private Date dob;
 
-    //    @OneToMany(cascade = CascadeType.ALL, fetch=FetchType.EAGER,mappedBy = "patient")
-    //    @JoinColumn(name = "patient_id", insertable = false, updatable = false)
-
     @OneToMany(mappedBy = "patient")
-
-//    @JoinTable(name="patient_illness",joinColumns = {@JoinColumn(name="patient_id")},inverseJoinColumns = {@JoinColumn(name="illness_id")})
-//    @JoinTable(name="patient_illness",joinColumns = {@JoinColumn(name="patient_id")})
-
     private Set<PatientIllness> patientIllness = new HashSet<>();
+
+    @OneToMany(mappedBy = "allergy")
+    private Set<PatientAllergy> patientAllergy = new HashSet<>();
 
 
 }
