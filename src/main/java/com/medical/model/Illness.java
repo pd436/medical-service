@@ -1,6 +1,6 @@
 package com.medical.model;
 
-
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 import org.hibernate.annotations.Type;
 
@@ -10,7 +10,8 @@ import java.util.Set;
 
 @Entity
 @Table(name="illness", schema= "DMSD_MEDICAL")
-@Data
+@Getter
+@Setter
 @AllArgsConstructor
 @NoArgsConstructor
 public class Illness {

@@ -2,7 +2,9 @@ package com.medical.model;
 
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
+import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -12,7 +14,8 @@ import java.util.Set;
 
 @Entity
 @Table(name="patient", schema= "DMSD_MEDICAL")
-@Data
+@Getter
+@Setter
 @AllArgsConstructor
 @NoArgsConstructor
 public class Patient implements Serializable {
@@ -46,7 +49,14 @@ public class Patient implements Serializable {
     @JsonFormat(pattern="MM/dd/yyyy")
     private Date dob;
 
+    //    @OneToMany(cascade = CascadeType.ALL, fetch=FetchType.EAGER,mappedBy = "patient")
+    //    @JoinColumn(name = "patient_id", insertable = false, updatable = false)
+
     @OneToMany(mappedBy = "patient")
+
+//    @JoinTable(name="patient_illness",joinColumns = {@JoinColumn(name="patient_id")},inverseJoinColumns = {@JoinColumn(name="illness_id")})
+//    @JoinTable(name="patient_illness",joinColumns = {@JoinColumn(name="patient_id")})
+
     private Set<PatientIllness> patientIllness = new HashSet<>();
 
 
