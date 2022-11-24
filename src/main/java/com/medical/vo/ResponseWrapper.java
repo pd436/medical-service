@@ -11,7 +11,6 @@ import lombok.NoArgsConstructor;
 
 
 @NoArgsConstructor
-@AllArgsConstructor
 @Data
 @JsonInclude(Include.NON_NULL)
 public class ResponseWrapper<T> implements Serializable{
