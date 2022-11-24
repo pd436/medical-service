@@ -14,13 +14,18 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping(value = ResourceReference.PATIENT)
 @Tag(name = "Patient Controller" ,description = "Manages patients")
 public class ClinicPatientController {
     @Autowired
     ClinicPatientService patientService;
 
-    @PostMapping(value = ResourceReference.CREATE, consumes = MediaType.APPLICATION_JSON_VALUE,
+    @GetMapping( value = ResourceReference.PATIENT, produces = {MediaType.APPLICATION_JSON_VALUE})
+    public ResponseWrapper<List<Patient>> getAllPatients(){
+        List<Patient> response = this.patientService.getAllPatients();
+        return new ResponseWrapper<>(new Metadata(true,"Provides all patients"),response);
+    }
+
+    @PostMapping(value = ResourceReference.PATIENT, consumes = MediaType.APPLICATION_JSON_VALUE,
             produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseWrapper<Patient> addPatient(@RequestBody Patient patient) {
         Patient response = this.patientService.addPatient(patient);
@@ -28,15 +33,10 @@ public class ClinicPatientController {
     }
 
 
-    @GetMapping( value = ResourceReference.ALL, produces = {MediaType.APPLICATION_JSON_VALUE})
-    public ResponseWrapper<List<Patient>> getAllPatients(){
-        List<Patient> response = this.patientService.getAllPatients();
-        return new ResponseWrapper<>(new Metadata(true,"Provides all patients"),response);
-    }
-
-    @PostMapping( value = ResourceReference.ID, produces = {MediaType.APPLICATION_JSON_VALUE})
-    public ResponseWrapper<Patient> getPatientById(@RequestBody Patient patient){
-        Optional<Patient> response = this.patientService.getPatientById(Long.valueOf((patient.getPatientId())));
+    @PostMapping( value = ResourceReference.PATIENT_BY_ID, produces = {MediaType.APPLICATION_JSON_VALUE})
+    public ResponseWrapper<Patient> getPatientById( @PathVariable String patient_id){
+//        Optional<Patient> response = this.patientService.getPatientById(Long.valueOf((patient.getPatientId())));
+        Optional<Patient> response = this.patientService.getPatientById(Long.valueOf(patient_id));
         return new ResponseWrapper<>(new Metadata(true,"Provides patient information"),response.get());
     }
 

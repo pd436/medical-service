@@ -12,13 +12,12 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping(value = ResourceReference.ILLNESS)
 @Tag(name = "Illness Controller" ,description = "Manages illnesses")
 public class IllnessController {
     @Autowired
     IllnessService illnessService;
 
-    @PostMapping( value = ResourceReference.IDS, produces = {MediaType.APPLICATION_JSON_VALUE})
+    @PostMapping( value = ResourceReference.ILLNESS_BY_IDS, produces = {MediaType.APPLICATION_JSON_VALUE})
     public ResponseWrapper<List<Illness>> getIllnessByIds(@RequestBody List<Illness> illnesses){
         List<Illness> response = this.illnessService.getIllnessByIds(illnesses);
         return new ResponseWrapper<>(new Metadata(true,"Provides illness information"),response);
