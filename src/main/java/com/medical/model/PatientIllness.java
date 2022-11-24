@@ -15,11 +15,11 @@ public class PatientIllness {
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
     @Column(name = "patient_illness_id")
-    private Long patientIllnessId;
+    private Long illnessId;
 
-    @ManyToOne()
-    @JsonIgnore
+    @ManyToOne
     @JoinColumn(name="patient_id", nullable=false)
+    @JsonIgnore
     private Patient patient;
 
     @ManyToOne

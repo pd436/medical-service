@@ -15,9 +15,9 @@ public class PatientAllergy {
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
     @Column(name = "patient_allergy_id")
-    private Long patientAllergyId;
+    private Long allergyId;
 
-    @ManyToOne()
+    @ManyToOne
     @JoinColumn(name="patient_id", nullable=false)
     @JsonIgnore
     private Patient patient;

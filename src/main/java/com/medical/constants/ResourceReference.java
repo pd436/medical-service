@@ -18,6 +18,8 @@ public interface ResourceReference {
 
 	static final String ILLNESS = "/illness";
 
+	static final String ALLERGY = "/allergy";
+
 
 	
 }

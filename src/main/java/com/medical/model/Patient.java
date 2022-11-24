@@ -50,10 +50,10 @@ public class Patient implements Serializable {
     private Date dob;
 
     @OneToMany(mappedBy = "patient")
-    private Set<PatientIllness> patientIllness = new HashSet<>();
+    private Set<PatientIllness> illness = new HashSet<>();
 
-    @OneToMany(mappedBy = "allergy")
-    private Set<PatientAllergy> patientAllergy = new HashSet<>();
+    @OneToMany(mappedBy = "patient")
+    private Set<PatientAllergy> allergy = new HashSet<>();
 
 
 }

@@ -18,7 +18,6 @@ public class IllnessController {
     @Autowired
     IllnessService illnessService;
 
-
     @PostMapping( value = ResourceReference.IDS, produces = {MediaType.APPLICATION_JSON_VALUE})
     public ResponseWrapper<List<Illness>> getIllnessByIds(@RequestBody List<Illness> illnesses){
         List<Illness> response = this.illnessService.getIllnessByIds(illnesses);

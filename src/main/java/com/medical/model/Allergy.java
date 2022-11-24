@@ -31,4 +31,5 @@ public class Allergy implements Serializable {
     @JsonIgnore
     private Set<PatientAllergy> patientAllergy = new HashSet<>();
 
+
 }

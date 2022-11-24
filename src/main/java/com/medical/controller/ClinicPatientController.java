@@ -2,20 +2,14 @@ package com.medical.controller;
 
 
 import com.medical.constants.ResourceReference;
-import com.medical.model.ClinicEmployee;
 import com.medical.model.Patient;
-import com.medical.service.ClinicEmployeeService;
 import com.medical.service.ClinicPatientService;
 import com.medical.vo.Metadata;
 import com.medical.vo.ResponseWrapper;
-import io.swagger.v3.oas.annotations.Operation;
-import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
-
-import java.text.ParseException;
 import java.util.List;
 import java.util.Optional;
 
