@@ -17,6 +17,11 @@ public interface ResourceReference {
 
 	static final String ILLNESS_BY_IDS = ILLNESS + "/ids";
 
+	static final String CLINIC_EMLPLOYEE_DETAILS_SPECIALTY = CLINIC_EMLPLOYEE_DETAILS + "/specialty";
+
+
+	static final String SURGEON_CONTRACT = "/surgeon-contract";
+
 
 
 	

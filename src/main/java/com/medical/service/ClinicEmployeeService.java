@@ -8,4 +8,6 @@ public interface ClinicEmployeeService {
 	
 	public List<ClinicEmployee> getClinicEmployeeDetails();
 
+	public ClinicEmployee addClinicEmployeeDetails(ClinicEmployee clinicEmployee);
+
 }

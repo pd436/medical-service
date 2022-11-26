@@ -14,12 +14,17 @@ public class ClinicEmployeeServiceImpl implements ClinicEmployeeService{
 	
 	@Autowired
 	ClinicEmployeeRepository employeeRepository;
-	
+
 
 	@Override
 	public List<ClinicEmployee> getClinicEmployeeDetails() {
 		return employeeRepository.findAll();
 	}
+
+	@Override
+	public ClinicEmployee addClinicEmployeeDetails(ClinicEmployee clinicEmployee){
+		return employeeRepository.save(clinicEmployee);
+	};
 	
 
 }
