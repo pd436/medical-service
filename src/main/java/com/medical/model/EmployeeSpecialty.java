@@ -7,6 +7,8 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.io.Serializable;
+import java.util.List;
 
 
 @Entity
@@ -15,17 +17,18 @@ import javax.persistence.*;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class EmployeeSpecialty {
+public class EmployeeSpecialty implements Serializable {
 
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
     @Column(name="specialty_id")
-    private Integer specialityId;
+    private Integer specialtyId;
 
     @Column(name="specialty")
     private String specialty;
 
     @OneToOne(mappedBy = "specialty")
     @JsonIgnore
+    @Transient
     private ClinicEmployee clinicEmployee;
 }

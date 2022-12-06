@@ -1,21 +1,21 @@
 package com.medical.model;
 
 import java.io.Serializable;
-import java.util.Date;
+import java.util.*;
 
 import javax.persistence.*;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+import lombok.*;
 import org.hibernate.annotations.Type;
-
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
 
 
 @Entity
 @Table(name="clinic_employee", schema= "DMSD_MEDICAL")
-@Data
+@Getter
+@Setter
 @AllArgsConstructor
 @NoArgsConstructor
 public class ClinicEmployee implements Serializable{
@@ -23,11 +23,15 @@ public class ClinicEmployee implements Serializable{
 	private static final long serialVersionUID = 1L;
 	
 	@Id
+	@GeneratedValue(strategy= GenerationType.AUTO)
 	@Column(name = "clinic_employee_id")
+	private Long clinicEmployeeId;
+
+	@Column(name = "clinic_id")
 	private Integer clinicId;
 	
 	@Column(name = "employee_number")
-	private Integer employeeNumber;
+	private String employeeNumber;
 	
 	@Column(name = "first_name")
 	private String firstName;
@@ -86,21 +90,24 @@ public class ClinicEmployee implements Serializable{
 	@Column(name = "min_allocated_patient")
 	private Integer minAllocatedPatient;
 
-	@OneToOne
-	@JoinColumn(name = "occupation_id", referencedColumnName = "occupation_id")
+	@OneToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name = "occupation", referencedColumnName = "occupation_id")
 	private Occupation occupation;
 
-	@OneToOne
-	@JoinColumn(name = "contract_type_id", referencedColumnName = "contract_type_id")
+	@OneToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name = "contract", referencedColumnName = "contract_type_id")
 	private SurgeonContract contract;
 
-	@OneToOne
-	@JoinColumn(name = "nurse_grade_id", referencedColumnName = "grade_id")
+	@OneToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name = "grade", referencedColumnName = "grade_id")
 	private NurseGrade nurseGrade;
 
-	@OneToOne
-	@JoinColumn(name = "specialty_id", referencedColumnName = "specialty_id")
+	@OneToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name = "specialty", referencedColumnName = "specialty_id")
 	private EmployeeSpecialty specialty;
 
+	@OneToMany(mappedBy = "clinicEmployee",fetch = FetchType.LAZY)
+	@JsonManagedReference
+	List<EmployeeShift> shifts = new ArrayList<>();
 
 }

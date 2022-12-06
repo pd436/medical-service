@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.List;
 
 
 @Entity
@@ -28,8 +29,9 @@ public class SurgeonContract {
     @Column(name="contract_length")
     private Integer contractLength;
 
-    @OneToOne(mappedBy = "contract")
+    @OneToOne
     @JsonIgnore
+    @Transient
     private ClinicEmployee clinicEmployee;
 
 

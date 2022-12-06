@@ -3,12 +3,13 @@ import java.io.Serializable;
 
 import javax.persistence.*;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Table(name="OCCUPATION", schema= "DMSD_MEDICAL")
+@Table(name="occupation", schema= "DMSD_MEDICAL")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -24,6 +25,8 @@ public class Occupation implements Serializable{
 	private String  occupation;
 
 	@OneToOne(mappedBy = "occupation")
+	@JsonIgnore
+	@Transient
 	private ClinicEmployee clinicEmployee;
 
 }

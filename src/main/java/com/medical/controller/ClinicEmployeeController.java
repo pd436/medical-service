@@ -1,13 +1,12 @@
 package com.medical.controller;
 
 import java.util.List;
+import java.util.Optional;
 
+import com.medical.model.EmployeeShiftType;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import com.medical.constants.ResourceReference;
 import com.medical.model.ClinicEmployee;
 import com.medical.service.ClinicEmployeeService;
@@ -35,19 +34,31 @@ public class ClinicEmployeeController {
 	@GetMapping( value = ResourceReference.CLINIC_EMLPLOYEE_DETAILS, produces = {MediaType.APPLICATION_JSON_VALUE})
 	public ResponseWrapper<List<ClinicEmployee>> getEmployeeDetails(){
 		List<ClinicEmployee> response = this.employeeService.getClinicEmployeeDetails();
-		return new ResponseWrapper<>(new Metadata(true,"Provides the employee details"),response);
+		return new ResponseWrapper<>(new Metadata(true,"Provides the all employee details"),response);
 	}
 
 	@PostMapping( value = ResourceReference.CLINIC_EMLPLOYEE_DETAILS, produces = {MediaType.APPLICATION_JSON_VALUE})
 	public ResponseWrapper<ClinicEmployee> addEmployeeDetails(@RequestBody ClinicEmployee clinicEmployee){
 		System.out.println(clinicEmployee);
-//		ClinicEmployee response = this.employeeService.addClinicEmployeeDetails(clinicEmployee);
-		return new ResponseWrapper<>(new Metadata(true,"Adds the employee details"),null);
+		ClinicEmployee response = this.employeeService.addClinicEmployeeDetails(clinicEmployee);
+		return new ResponseWrapper<>(new Metadata(true,"Adds the employee details"),response);
 	}
 
 
+	@PostMapping( value = ResourceReference.CLINIC_EMLPLOYEE_REMOVE, produces = {MediaType.APPLICATION_JSON_VALUE})
+	public ResponseWrapper<ClinicEmployee> removeEmployee(@PathVariable Long employeeId){
+		System.out.println(employeeId);
+		ClinicEmployee response = this.employeeService.removeClinicEmployeeById(employeeId);
+		return new ResponseWrapper<>(new Metadata(true,"Removes the employee details"),response);
+	}
 
-	
-	
+
+	@PostMapping( value = ResourceReference.CLINIC_EMLPLOYEE_BY_ID, produces = {MediaType.APPLICATION_JSON_VALUE})
+	public ResponseWrapper<ClinicEmployee> getEmployeeById(@PathVariable Long employeeId){
+		System.out.println(employeeId);
+		Optional<ClinicEmployee> response = this.employeeService.getClinicEmployeeDetailsById(employeeId);
+		return new ResponseWrapper<>(new Metadata(true,"Reads the employee details by id"),response.get());
+	}
+
 	
 }

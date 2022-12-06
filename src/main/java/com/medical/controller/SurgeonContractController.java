@@ -2,7 +2,6 @@ package com.medical.controller;
 
 
 import com.medical.constants.ResourceReference;
-import com.medical.model.EmployeeSpecialty;
 import com.medical.model.SurgeonContract;
 import com.medical.service.SurgeonContractService;
 import com.medical.vo.Metadata;
@@ -23,7 +22,7 @@ public class SurgeonContractController {
     SurgeonContractService surgeonContractService;
 
 
-    @GetMapping( value = ResourceReference.SURGEON_CONTRACT, produces = {MediaType.APPLICATION_JSON_VALUE})
+    @GetMapping( value = ResourceReference.CLINIC_EMLPLOYEE_DETAILS_SURGEON_CONTRACT, produces = {MediaType.APPLICATION_JSON_VALUE})
     public ResponseWrapper<List<SurgeonContract>> getAllSurgeonContracts(){
         List<SurgeonContract> response = this.surgeonContractService.getAllSurgeonContracts();
         return new ResponseWrapper<>(new Metadata(true,"Provides all contracts for surgeons"),response);

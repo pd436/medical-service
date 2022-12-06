@@ -19,8 +19,23 @@ public interface ResourceReference {
 
 	static final String CLINIC_EMLPLOYEE_DETAILS_SPECIALTY = CLINIC_EMLPLOYEE_DETAILS + "/specialty";
 
+	static final String CLINIC_EMLPLOYEE_DETAILS_NURSE_GRADES = CLINIC_EMLPLOYEE_DETAILS + "/nurse-grades";
 
-	static final String SURGEON_CONTRACT = "/surgeon-contract";
+	static final String CLINIC_EMLPLOYEE_DETAILS_SURGEON_CONTRACT = CLINIC_EMLPLOYEE_DETAILS + "/surgeon-contract";
+
+	static final String CLINIC_EMLPLOYEE_REMOVE = CLINIC_EMLPLOYEE_DETAILS + "/remove/{employeeId}";
+
+	static final String CLINIC_EMLPLOYEE_BY_ID = CLINIC_EMLPLOYEE_DETAILS + "/{employeeId}";
+
+	static final String CLINIC_EMLPLOYEE_SHIFT = CLINIC_EMLPLOYEE_DETAILS + "/shift";
+
+	static final String CLINIC_EMLPLOYEE_SHIFT_SAVE = CLINIC_EMLPLOYEE_SHIFT + "/save";
+
+	static final String CLINIC_EMLPLOYEE_SHIFT_TYPE_ALL = CLINIC_EMLPLOYEE_SHIFT + "/type/all";
+
+	static final String CLINIC_EMLPLOYEE_SHIFT_BY_EMPL_ID = CLINIC_EMLPLOYEE_DETAILS + "/{employeeId}/shift";
+
+
 
 
 
