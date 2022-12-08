@@ -2,6 +2,7 @@ package com.medical.controller;
 
 
 import com.medical.constants.ResourceReference;
+import com.medical.dto.EmployeeShiftDTO;
 import com.medical.model.EmployeeShift;
 import com.medical.service.ClinicEmployeeShiftService;
 import com.medical.vo.Metadata;
@@ -27,8 +28,8 @@ public class ClinicEmployeeShiftController {
     }
 
     @GetMapping( value = ResourceReference.CLINIC_EMLPLOYEE_SHIFT_BY_EMPL_ID, produces = {MediaType.APPLICATION_JSON_VALUE})
-    public ResponseWrapper<List<EmployeeShift>>getEmployeeShift(@PathVariable Long employeeId){
-        List<EmployeeShift> result = this.clinicEmployeeShiftService.getEmployeeShift(employeeId);
+    public ResponseWrapper<List<EmployeeShiftDTO>>getEmployeeShift(@PathVariable int employeeId){
+        List<EmployeeShiftDTO> result = this.clinicEmployeeShiftService.getEmployeeShift(employeeId);
         return new ResponseWrapper<>(new Metadata(true,"Saves Employee Shifts"),result);
     }
 }

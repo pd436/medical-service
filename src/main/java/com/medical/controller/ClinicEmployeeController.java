@@ -1,9 +1,8 @@
 package com.medical.controller;
 
 import java.util.List;
-import java.util.Optional;
 
-import com.medical.model.EmployeeShiftType;
+import com.medical.dto.ClinicEmployeeShiftDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
@@ -53,11 +52,18 @@ public class ClinicEmployeeController {
 	}
 
 
+//	@PostMapping( value = ResourceReference.CLINIC_EMLPLOYEE_BY_ID, produces = {MediaType.APPLICATION_JSON_VALUE})
+//	public ResponseWrapper<ClinicEmployee> getEmployeeById(@PathVariable Long employeeId){
+//		System.out.println(employeeId);
+//		Optional<ClinicEmployee> response = this.employeeService.getClinicEmployeeDetailsById(employeeId);
+//		return new ResponseWrapper<>(new Metadata(true,"Reads the employee details by id"),response.get());
+//	}
+
 	@PostMapping( value = ResourceReference.CLINIC_EMLPLOYEE_BY_ID, produces = {MediaType.APPLICATION_JSON_VALUE})
-	public ResponseWrapper<ClinicEmployee> getEmployeeById(@PathVariable Long employeeId){
+	public ResponseWrapper<ClinicEmployeeShiftDTO> getEmployeeById(@PathVariable int employeeId){
 		System.out.println(employeeId);
-		Optional<ClinicEmployee> response = this.employeeService.getClinicEmployeeDetailsById(employeeId);
-		return new ResponseWrapper<>(new Metadata(true,"Reads the employee details by id"),response.get());
+		ClinicEmployeeShiftDTO response = this.employeeService.getClinicEmployeeDetailsById(employeeId);
+		return new ResponseWrapper<>(new Metadata(true,"Reads the employee details by id"),response);
 	}
 
 	

@@ -1,5 +1,6 @@
 package com.medical.service.impl;
 
+import com.medical.dto.EmployeeShiftDTO;
 import com.medical.model.EmployeeShift;
 import com.medical.repository.ClinicEmployeeShiftRepository;
 import com.medical.service.ClinicEmployeeShiftService;
@@ -23,7 +24,7 @@ public class ClinicEmployeeShiftServiceImpl implements ClinicEmployeeShiftServic
     }
 
     @Override
-    public List<EmployeeShift> getEmployeeShift(Long employeeId) {
-        return clinicEmployeeShiftRepository.getEmployeeShift(employeeId);
+    public List<EmployeeShiftDTO> getEmployeeShift(int employeeId) {
+        return clinicEmployeeShiftRepository.getEmployeeShiftDetails(employeeId);
     }
 }

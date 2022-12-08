@@ -106,8 +106,10 @@ public class ClinicEmployee implements Serializable{
 	@JoinColumn(name = "specialty", referencedColumnName = "specialty_id")
 	private EmployeeSpecialty specialty;
 
-	@OneToMany(mappedBy = "clinicEmployee",fetch = FetchType.LAZY)
-	@JsonManagedReference
-	List<EmployeeShift> shifts = new ArrayList<>();
+//	@OneToMany(mappedBy = "clinicEmployee")
+//	@JsonManagedReference
+//	List<EmployeeShift> shifts;
+
+
 
 }

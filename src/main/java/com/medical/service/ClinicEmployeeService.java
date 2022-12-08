@@ -1,10 +1,9 @@
 package com.medical.service;
 
 import java.util.List;
-import java.util.Optional;
 
+import com.medical.dto.ClinicEmployeeShiftDTO;
 import com.medical.model.ClinicEmployee;
-import com.medical.model.EmployeeShiftType;
 
 public interface ClinicEmployeeService {
 	
@@ -12,7 +11,8 @@ public interface ClinicEmployeeService {
 
 	public ClinicEmployee addClinicEmployeeDetails(ClinicEmployee clinicEmployee);
 
-	public Optional<ClinicEmployee> getClinicEmployeeDetailsById(Long employeeId);
+//	public Optional<ClinicEmployee> getClinicEmployeeDetailsById(Long employeeId);
+	public ClinicEmployeeShiftDTO getClinicEmployeeDetailsById(int employeeId);
 
 	public ClinicEmployee removeClinicEmployeeById(Long employeeId);
 
