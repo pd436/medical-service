@@ -1,8 +1,7 @@
 package com.medical.service.impl;
 
-import com.medical.dto.ClinicPatientAllergyDTO;
 import com.medical.dto.ClinicPatientDTO;
-import com.medical.dto.ClinicPatientIllnessDTO;
+import com.medical.dto.ConsultationDTO;
 import com.medical.mapstruct.mappers.IMedicalMapper;
 import com.medical.model.Patient;
 import com.medical.repository.ClinicPatientRepository;
@@ -11,7 +10,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class ClinicPatientServiceImpl implements ClinicPatientService {
@@ -42,6 +40,8 @@ public class ClinicPatientServiceImpl implements ClinicPatientService {
 
         clinicPatientDTO.setAllergy(patientRepository.getPatientAllergyByEmplId(id));
 
+        clinicPatientDTO.setConsultation(patientRepository.getPatientConsultations(id.intValue()));
+
         return clinicPatientDTO;
     }
 
@@ -51,7 +51,7 @@ public class ClinicPatientServiceImpl implements ClinicPatientService {
     }
 
     @Override
-    public int deletellnessForPatient(int patientId, int illnessId) {
+    public int deleteIllnessForPatient(int patientId, int illnessId) {
         return patientRepository.deletePatientIllness(patientId,illnessId);
     }
 
@@ -65,8 +65,10 @@ public class ClinicPatientServiceImpl implements ClinicPatientService {
         return patientRepository.deletePAtientAllergy(patientId,allergyId);
     }
 
-
-
+    @Override
+    public List<ConsultationDTO> getPatientConsultations(int patientId) {
+        return patientRepository.getPatientConsultations(patientId);
+    }
 
 
 }

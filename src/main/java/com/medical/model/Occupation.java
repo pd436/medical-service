@@ -1,12 +1,12 @@
 package com.medical.model;
-import java.io.Serializable;
-
-import javax.persistence.*;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
 @Table(name="occupation", schema= "DMSD_MEDICAL")

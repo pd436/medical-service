@@ -25,6 +25,10 @@ public interface ResourceReference {
 
 	static final String PATIENT_ILLNESS_DELETE = PATIENT + ILLNESS + "/delete";
 
+	static final String PATIENT_APPT_ADD = PATIENT + "/appt/add";
+
+	static final String PATIENT_APPT_REMOVE = PATIENT + "/appt/delete";
+
 	static final String ILLNESS_BY_IDS = ILLNESS + "/ids";
 
 	static final String CLINIC_EMLPLOYEE_DETAILS_SPECIALTY = CLINIC_EMLPLOYEE_DETAILS + "/specialty";
@@ -40,6 +44,8 @@ public interface ResourceReference {
 	static final String CLINIC_EMLPLOYEE_SHIFT = CLINIC_EMLPLOYEE_DETAILS + "/shift";
 
 	static final String CLINIC_EMLPLOYEE_SHIFT_SAVE = CLINIC_EMLPLOYEE_SHIFT + "/save";
+
+	static final String CLINIC_EMLPLOYEE_SHIFT_DELETE = CLINIC_EMLPLOYEE_SHIFT + "/remove";
 
 	static final String CLINIC_EMLPLOYEE_SHIFT_TYPE_ALL = CLINIC_EMLPLOYEE_SHIFT + "/type/all";
 

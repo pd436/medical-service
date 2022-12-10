@@ -3,6 +3,7 @@ package com.medical.repository;
 
 import com.medical.dto.ClinicPatientAllergyDTO;
 import com.medical.dto.ClinicPatientIllnessDTO;
+import com.medical.dto.ConsultationDTO;
 import com.medical.model.Patient;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
@@ -52,5 +53,10 @@ public interface ClinicPatientRepository  extends JpaRepository<Patient,Long> {
     @Query(value="delete from  patient_allergy where patient_id= :patient_Id and allergy_id= :allergy_Id",nativeQuery = true)
     @Transactional
     int deletePAtientAllergy(@Param("patient_Id")int patientId,@Param("allergy_Id")int allergyId);
+
+    @Query("select new com.medical.dto.ConsultationDTO(c.consultationId,c.patientId,c.consultationDate,c.physicianId,ce.firstName,ce.lastName) from Consultation c " +
+            "join ClinicEmployee ce on ce.clinicEmployeeId = c.physicianId " +
+            "where c.patientId = :patientId")
+    List<ConsultationDTO> getPatientConsultations(@Param("patientId")int patientId);
 
 }

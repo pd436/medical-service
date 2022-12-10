@@ -2,7 +2,6 @@ package com.medical.service.impl;
 
 
 import com.medical.model.EmployeeShiftType;
-
 import com.medical.repository.ClinicEmployeeShiftTypeRepository;
 import com.medical.service.ClinicEmployeeShiftTypeService;
 import org.springframework.beans.factory.annotation.Autowired;

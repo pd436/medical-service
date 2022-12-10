@@ -10,14 +10,14 @@ import java.util.Date;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class EmployeeShiftDTO {
     @JsonProperty("emplShiftId")
-    private int shiftId;
+    private Long shiftId;
     private int shiftTypeId;
     private Date shiftDate;
     private String shiftType;
     private String shiftDesc;
 
 
-    public EmployeeShiftDTO(int shiftId, int shiftTypeId, Date shiftDate, String shiftType, String shiftDesc) {
+    public EmployeeShiftDTO(long shiftId, int shiftTypeId, Date shiftDate, String shiftType, String shiftDesc) {
         this.shiftTypeId = shiftTypeId;
         this.shiftId = shiftId;
         this.shiftDate = shiftDate;

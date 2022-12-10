@@ -1,7 +1,6 @@
 package com.medical.repository;
 
 import com.medical.dto.EmployeeShiftDTO;
-import com.medical.dto.EmployeeShiftTypeDTO;
 import com.medical.model.EmployeeShift;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;

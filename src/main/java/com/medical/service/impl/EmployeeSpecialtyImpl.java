@@ -2,7 +2,6 @@ package com.medical.service.impl;
 
 
 import com.medical.model.EmployeeSpecialty;
-import com.medical.model.Patient;
 import com.medical.repository.EmployeeSpecialtyRepository;
 import com.medical.service.EmployeeSpecialtyService;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,20 +1,15 @@
 package com.medical.service.impl;
 
-import java.util.List;
-import java.util.Optional;
-
 import com.medical.dto.ClinicEmployeeDTO;
-import com.medical.dto.EmployeeOccupationDTO;
 import com.medical.dto.EmployeeShiftDTO;
-import com.medical.model.Allergy;
-import com.medical.model.Occupation;
+import com.medical.model.ClinicEmployee;
+import com.medical.repository.ClinicEmployeeRepository;
 import com.medical.repository.ClinicEmployeeShiftRepository;
+import com.medical.service.ClinicEmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.medical.model.ClinicEmployee;
-import com.medical.repository.ClinicEmployeeRepository;
-import com.medical.service.ClinicEmployeeService;
+import java.util.List;
 
 import static com.medical.mapstruct.mappers.IMedicalMapper.MAPPER;
 

@@ -1,9 +1,9 @@
 package com.medical.service;
 
-import java.util.List;
-
 import com.medical.dto.ClinicEmployeeDTO;
 import com.medical.model.ClinicEmployee;
+
+import java.util.List;
 
 public interface ClinicEmployeeService {
 	

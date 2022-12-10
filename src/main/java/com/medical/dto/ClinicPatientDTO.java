@@ -1,17 +1,11 @@
 package com.medical.dto;
 
 
-import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonInclude;
-import com.medical.model.PatientAllergy;
-import com.medical.model.PatientIllness;
 import lombok.Data;
 
-import javax.persistence.*;
 import java.util.Date;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 @Data
 @JsonInclude(JsonInclude.Include.NON_NULL)
@@ -53,4 +47,7 @@ public class ClinicPatientDTO {
     private List<ClinicPatientIllnessDTO> illness;
 
     private List<ClinicPatientAllergyDTO> allergy;
+
+    private List<ConsultationDTO> consultation;
+
 }

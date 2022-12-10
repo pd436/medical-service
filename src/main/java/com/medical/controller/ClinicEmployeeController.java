@@ -1,12 +1,7 @@
 package com.medical.controller;
 
-import java.util.List;
-
-import com.medical.dto.ClinicEmployeeDTO;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.MediaType;
-import org.springframework.web.bind.annotation.*;
 import com.medical.constants.ResourceReference;
+import com.medical.dto.ClinicEmployeeDTO;
 import com.medical.model.ClinicEmployee;
 import com.medical.service.ClinicEmployeeService;
 import com.medical.vo.Metadata;
@@ -14,6 +9,11 @@ import com.medical.vo.ResponseWrapper;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @Tag(name = "Employee Controller" ,description = "Manages employee")

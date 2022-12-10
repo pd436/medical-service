@@ -16,7 +16,7 @@ import javax.annotation.processing.Generated;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2022-12-09T23:25:56-0500",
+    date = "2022-12-10T15:37:49-0500",
     comments = "version: 1.4.2.Final, compiler: javac, environment: Java 19.0.1 (Oracle Corporation)"
 )
 public class IMedicalMapperImpl implements IMedicalMapper {
