@@ -23,4 +23,10 @@ public class IllnessController {
         return new ResponseWrapper<>(new Metadata(true,"Provides illness information"),response);
     }
 
+    @GetMapping( value = ResourceReference.ILLNESS, produces = {MediaType.APPLICATION_JSON_VALUE})
+    public ResponseWrapper<List<Illness>> getAllIlnesses(){
+        List<Illness> response = this.illnessService.getAllIllnesses();
+        return new ResponseWrapper<>(new Metadata(true,"Provides all illnesses"),response);
+    }
+
 }

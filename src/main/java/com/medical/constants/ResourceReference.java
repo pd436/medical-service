@@ -7,13 +7,23 @@ public interface ResourceReference {
 	static final String OCCUPATION = "/occupation";
 
 	static final String PATIENT = "/patient";
-	static final String PATIENT_BY_ID = PATIENT + "/{patient_id}";
+
+	static final String CLINIC_EMLPLOYEE_DETAILS_BY_OCCUPATION = CLINIC_EMLPLOYEE_DETAILS + "/occupation/{occupationId}";
+	static final String PATIENT_ID = PATIENT + "/{patient_id}";
 
 	static final String ALLERGY = "/allergy";
+
+	static final String PATIENT_ALLERGY_SAVE = PATIENT + ALLERGY + "/save";
+
+	static final String PATIENT_ALLERGY_DELETE = PATIENT + ALLERGY + "/delete";
 
 	static final String ALLERGY_BY_IDS = ALLERGY + "/ids";
 
 	static final String ILLNESS = "/illness";
+
+	static final String PATIENT_ILLNESS_SAVE = PATIENT + ILLNESS + "/save";
+
+	static final String PATIENT_ILLNESS_DELETE = PATIENT + ILLNESS + "/delete";
 
 	static final String ILLNESS_BY_IDS = ILLNESS + "/ids";
 

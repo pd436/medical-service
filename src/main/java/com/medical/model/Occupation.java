@@ -20,7 +20,7 @@ public class Occupation implements Serializable{
 	@Id
 	@Column(name = "occupation_id")
 	private Integer occupationId;
-	
+
 	@Column(name="occupation")
 	private String  occupation;
 
@@ -28,5 +28,7 @@ public class Occupation implements Serializable{
 	@JsonIgnore
 	@Transient
 	private ClinicEmployee clinicEmployee;
+
+
 
 }

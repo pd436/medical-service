@@ -49,11 +49,11 @@ public class Patient implements Serializable {
     @JsonFormat(pattern="MM/dd/yyyy")
     private Date dob;
 
-    @OneToMany(mappedBy = "patient")
-    private Set<PatientIllness> illness = new HashSet<>();
-
-    @OneToMany(mappedBy = "patient")
-    private Set<PatientAllergy> allergy = new HashSet<>();
+//    @OneToMany(mappedBy = "patient")
+//    private Set<PatientIllness> illness = new HashSet<>();
+//
+//    @OneToMany(mappedBy = "patient")
+//    private Set<PatientAllergy> allergy = new HashSet<>();
 
 
 }

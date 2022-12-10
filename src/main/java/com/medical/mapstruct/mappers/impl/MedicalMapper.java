@@ -3,7 +3,7 @@ package com.medical.mapstruct.mappers.impl;
 import com.medical.dto.*;
 import com.medical.mapstruct.mappers.IMedicalMapper;
 import com.medical.model.ClinicEmployee;
-import com.medical.model.Occupation;
+import com.medical.model.Patient;
 
 import javax.annotation.processing.Generated;
 
@@ -13,9 +13,9 @@ public class MedicalMapper implements IMedicalMapper {
 
 
     @Override
-    public ClinicEmployeeShiftDTO clinicEmployeeToClinicEmployeeDto(ClinicEmployee ce) {
+    public ClinicEmployeeDTO clinicEmployeeToClinicEmployeeDto(ClinicEmployee ce) {
 
-        ClinicEmployeeShiftDTO cesDTO = new ClinicEmployeeShiftDTO();
+        ClinicEmployeeDTO cesDTO = new ClinicEmployeeDTO();
 
         cesDTO.setClinicId(ce.getClinicId());
         cesDTO.setClinicEmployeeId(ce.getClinicEmployeeId());
@@ -40,6 +40,22 @@ public class MedicalMapper implements IMedicalMapper {
 
 
         return cesDTO;
+    }
+
+    @Override
+    public ClinicPatientDTO clinicPatientToClinicPatientDto(Patient patient) {
+        ClinicPatientDTO clinicPatientDTO = new ClinicPatientDTO();
+
+        clinicPatientDTO.setPatientId((patient.getPatientId()));
+        clinicPatientDTO.setFirstName(patient.getFirstName());
+        clinicPatientDTO.setLastName(patient.getLastName());
+        clinicPatientDTO.setGender(patient.getGender());
+        clinicPatientDTO.setDob(patient.getDob());
+        clinicPatientDTO.setSsn(patient.getSsn());
+        clinicPatientDTO.setAddress(patient.getAddress());
+        clinicPatientDTO.setTelephone(patient.getTelephone());
+
+        return clinicPatientDTO;
     }
 
 

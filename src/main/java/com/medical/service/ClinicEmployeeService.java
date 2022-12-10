@@ -2,7 +2,7 @@ package com.medical.service;
 
 import java.util.List;
 
-import com.medical.dto.ClinicEmployeeShiftDTO;
+import com.medical.dto.ClinicEmployeeDTO;
 import com.medical.model.ClinicEmployee;
 
 public interface ClinicEmployeeService {
@@ -12,8 +12,9 @@ public interface ClinicEmployeeService {
 	public ClinicEmployee addClinicEmployeeDetails(ClinicEmployee clinicEmployee);
 
 //	public Optional<ClinicEmployee> getClinicEmployeeDetailsById(Long employeeId);
-	public ClinicEmployeeShiftDTO getClinicEmployeeDetailsById(int employeeId);
+	public ClinicEmployeeDTO getClinicEmployeeDetailsById(int employeeId);
 
 	public ClinicEmployee removeClinicEmployeeById(Long employeeId);
 
+    List<ClinicEmployeeDTO> getClinicEmployeeDetailsByOccupation(int occupation_id);
 }

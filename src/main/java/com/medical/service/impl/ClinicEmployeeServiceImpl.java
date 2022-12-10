@@ -1,11 +1,13 @@
 package com.medical.service.impl;
 
 import java.util.List;
+import java.util.Optional;
 
-import com.medical.dto.ClinicEmployeeShiftDTO;
+import com.medical.dto.ClinicEmployeeDTO;
 import com.medical.dto.EmployeeOccupationDTO;
 import com.medical.dto.EmployeeShiftDTO;
-import com.medical.mapstruct.mappers.impl.MedicalMapper;
+import com.medical.model.Allergy;
+import com.medical.model.Occupation;
 import com.medical.repository.ClinicEmployeeShiftRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -40,10 +42,10 @@ public class ClinicEmployeeServiceImpl implements ClinicEmployeeService{
 	};
 
 	@Override
-	public ClinicEmployeeShiftDTO getClinicEmployeeDetailsById(int employeeId) {
+	public ClinicEmployeeDTO getClinicEmployeeDetailsById(int employeeId) {
 		ClinicEmployee clinicEmployee = employeeRepository.findById(Long.valueOf(employeeId)).get();
 
-		ClinicEmployeeShiftDTO cesDTO = MAPPER.clinicEmployeeToClinicEmployeeDto(clinicEmployee);
+		ClinicEmployeeDTO cesDTO = MAPPER.clinicEmployeeToClinicEmployeeDto(clinicEmployee);
 
 		List<EmployeeShiftDTO> emplShifts = clinicEmployeeShiftRepository.getEmployeeShiftDetails(employeeId);
 
@@ -51,7 +53,9 @@ public class ClinicEmployeeServiceImpl implements ClinicEmployeeService{
 
 		System.out.println(clinicEmployee);
 		return cesDTO;
-	};
+	}
+
+
 
 //	@Override
 //	public ClinicEmployeeShiftDTO getClinicEmployeeDetailsById(Long employeeId) {
@@ -63,7 +67,15 @@ public class ClinicEmployeeServiceImpl implements ClinicEmployeeService{
 		return null;
 	}
 
-	;
+	@Override
+	public List<ClinicEmployeeDTO> getClinicEmployeeDetailsByOccupation(int occupationId) {
+
+		List<ClinicEmployeeDTO> clinicEmployee = employeeRepository.getEmployeeDetailsByOccupation(occupationId);
+
+
+		return clinicEmployee;
+	}
+
 
 //	@Override
 //	public ClinicEmployee removeClinicEmployeeById(Long employeeId) {

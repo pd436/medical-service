@@ -8,5 +8,8 @@ public interface IllnessService {
 
     public List<Illness> getIllnessByIds(List<Illness> illnesses);
 
+    public List<Illness> getAllIllnesses();
+
+
     public Optional<Illness> getIllnessById(Long id);
 }

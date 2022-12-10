@@ -27,9 +27,9 @@ public class Allergy implements Serializable {
     @Column(name="name")
     private String name;
 
-    @OneToMany(mappedBy = "allergy")
-    @JsonIgnore
-    private Set<PatientAllergy> patientAllergy = new HashSet<>();
+//    @OneToMany(mappedBy = "allergy")
+//    @JsonIgnore
+//    private Set<PatientAllergy> patientAllergy = new HashSet<>();
 
 
 }

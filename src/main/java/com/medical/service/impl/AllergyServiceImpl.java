@@ -32,7 +32,12 @@ public class AllergyServiceImpl implements AllergyService {
         });
 
         return foundAllergies;
-    };
+    }
+
+    @Override
+    public List<Allergy> getAllAllergies() {
+        return allergyRepository.findAll();
+    }
 
     @Override
     public Optional<Allergy> getAllergyById(Long id){

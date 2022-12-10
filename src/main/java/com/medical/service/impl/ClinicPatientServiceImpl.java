@@ -1,5 +1,9 @@
 package com.medical.service.impl;
 
+import com.medical.dto.ClinicPatientAllergyDTO;
+import com.medical.dto.ClinicPatientDTO;
+import com.medical.dto.ClinicPatientIllnessDTO;
+import com.medical.mapstruct.mappers.IMedicalMapper;
 import com.medical.model.Patient;
 import com.medical.repository.ClinicPatientRepository;
 import com.medical.service.ClinicPatientService;
@@ -26,10 +30,43 @@ public class ClinicPatientServiceImpl implements ClinicPatientService {
         return patientRepository.findAll();
     }
 
+
     @Override
-    public Optional<Patient> getPatientById(Long id) {
-        return patientRepository.findById(id);
+    public ClinicPatientDTO getPatientById(Long id) {
+
+        Patient patient = patientRepository.findById(id).get();
+
+        ClinicPatientDTO clinicPatientDTO = IMedicalMapper.MAPPER.clinicPatientToClinicPatientDto(patient);
+
+        clinicPatientDTO.setIllness(patientRepository.getPatientIllnessByEmplId(id));
+
+        clinicPatientDTO.setAllergy(patientRepository.getPatientAllergyByEmplId(id));
+
+        return clinicPatientDTO;
     }
+
+    @Override
+    public int saveIllnessForPatient(int patientId, int illnessId) {
+       return patientRepository.savePatientIllness(patientId,illnessId);
+    }
+
+    @Override
+    public int deletellnessForPatient(int patientId, int illnessId) {
+        return patientRepository.deletePatientIllness(patientId,illnessId);
+    }
+
+    @Override
+    public Integer saveAllergyForPatient(int patientId, int allergyId) {
+        return patientRepository.savePatientAllergy(patientId,allergyId);
+    }
+
+    @Override
+    public int deleteAllergyForPatient(int patientId, int allergyId) {
+        return patientRepository.deletePAtientAllergy(patientId,allergyId);
+    }
+
+
+
 
 
 }

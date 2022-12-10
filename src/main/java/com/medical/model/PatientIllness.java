@@ -15,16 +15,24 @@ public class PatientIllness {
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
     @Column(name = "patient_illness_id")
+    private Long patientIllnessId;
+
+
+    @Column(name = "illness_id")
     private Long illnessId;
 
-    @ManyToOne
-    @JoinColumn(name="patient_id", nullable=false)
-    @JsonIgnore
-    private Patient patient;
+    @Column(name = "patient_id")
+    private Long patientId;
 
-    @ManyToOne
-    @JoinColumn(name="illness_id", nullable=false)
-    @JsonIgnore
-    private Illness illness;
+
+//    @ManyToOne
+//    @JoinColumn(name="patient_id", nullable=false)
+//    @JsonIgnore
+//    private Patient patient;
+//
+//    @ManyToOne
+//    @JoinColumn(name="illness_id", nullable=false)
+//    @JsonIgnore
+//    private Illness illness;
 
 }

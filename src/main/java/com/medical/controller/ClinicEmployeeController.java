@@ -2,7 +2,7 @@ package com.medical.controller;
 
 import java.util.List;
 
-import com.medical.dto.ClinicEmployeeShiftDTO;
+import com.medical.dto.ClinicEmployeeDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
@@ -36,6 +36,14 @@ public class ClinicEmployeeController {
 		return new ResponseWrapper<>(new Metadata(true,"Provides the all employee details"),response);
 	}
 
+
+	@GetMapping( value = ResourceReference.CLINIC_EMLPLOYEE_DETAILS_BY_OCCUPATION, produces = {MediaType.APPLICATION_JSON_VALUE})
+	public ResponseWrapper<List<ClinicEmployeeDTO>> getEmployeeByOccupation(@PathVariable int occupationId){
+		System.out.println(occupationId);
+		List<ClinicEmployeeDTO> response = this.employeeService.getClinicEmployeeDetailsByOccupation(occupationId);
+		return new ResponseWrapper<>(new Metadata(true,"Provides all patients"),response);
+	}
+
 	@PostMapping( value = ResourceReference.CLINIC_EMLPLOYEE_DETAILS, produces = {MediaType.APPLICATION_JSON_VALUE})
 	public ResponseWrapper<ClinicEmployee> addEmployeeDetails(@RequestBody ClinicEmployee clinicEmployee){
 		System.out.println(clinicEmployee);
@@ -60,9 +68,9 @@ public class ClinicEmployeeController {
 //	}
 
 	@PostMapping( value = ResourceReference.CLINIC_EMLPLOYEE_BY_ID, produces = {MediaType.APPLICATION_JSON_VALUE})
-	public ResponseWrapper<ClinicEmployeeShiftDTO> getEmployeeById(@PathVariable int employeeId){
+	public ResponseWrapper<ClinicEmployeeDTO> getEmployeeById(@PathVariable int employeeId){
 		System.out.println(employeeId);
-		ClinicEmployeeShiftDTO response = this.employeeService.getClinicEmployeeDetailsById(employeeId);
+		ClinicEmployeeDTO response = this.employeeService.getClinicEmployeeDetailsById(employeeId);
 		return new ResponseWrapper<>(new Metadata(true,"Reads the employee details by id"),response);
 	}
 

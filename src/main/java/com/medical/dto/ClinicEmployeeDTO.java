@@ -2,8 +2,6 @@ package com.medical.dto;
 
 
 import com.fasterxml.jackson.annotation.JsonInclude;
-import com.medical.model.EmployeeShift;
-import com.medical.model.EmployeeSpecialty;
 import lombok.Data;
 
 import java.util.Date;
@@ -11,7 +9,7 @@ import java.util.List;
 
 @Data
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class ClinicEmployeeShiftDTO {
+public class ClinicEmployeeDTO {
 
     private Integer clinicId;
     private Long clinicEmployeeId;
@@ -30,6 +28,8 @@ public class ClinicEmployeeShiftDTO {
     private Integer maxAllocatedPatient;
     private Integer minAllocatedPatient;
 
+    private Integer occupationId;
+
     private List<EmployeeShiftDTO> employeeShift;
 
     private EmployeeOccupationDTO occupation;
@@ -40,13 +40,18 @@ public class ClinicEmployeeShiftDTO {
 
     private EmployeeSpecialtyDTO specialty;
 
+    public ClinicEmployeeDTO(String firstName, String lastName, Integer occupationId,Long clinicEmployereId) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.clinicEmployeeId = clinicEmployereId;
+        this.occupationId = occupationId;
+    }
 
-
-    public ClinicEmployeeShiftDTO(Integer clinicId, Long clinicEmployeeId, String firstName, String lastName, String gender,
-                                  String address, String phoneNumber, Long salary, String ssn,
-                                  Date dob, Integer yearsExperience, Boolean isOwner, Boolean isActive,
-                                  Integer shiftId, Integer maxAllocatedPatient, Integer minAllocatedPatient,
-                                  String employeeNumber, int shiftTypeId,Date shiftDate, String shiftDesc, String shiftType){
+    public ClinicEmployeeDTO(Integer clinicId, Long clinicEmployeeId, String firstName, String lastName, String gender,
+                             String address, String phoneNumber, Long salary, String ssn,
+                             Date dob, Integer yearsExperience, Boolean isOwner, Boolean isActive,
+                             Integer shiftId, Integer maxAllocatedPatient, Integer minAllocatedPatient,
+                             String employeeNumber, int shiftTypeId, Date shiftDate, String shiftDesc, String shiftType){
         this.clinicId = clinicId;
         this.clinicEmployeeId = clinicEmployeeId;
         this.employeeNumber = employeeNumber;
@@ -66,11 +71,11 @@ public class ClinicEmployeeShiftDTO {
 //        this.employeeShift = new EmployeeShiftDTO(shiftId,shiftTypeId,shiftDate,shiftType,shiftDesc);
     }
 
-    public ClinicEmployeeShiftDTO(Integer clinicId, Long clinicEmployeeId, String firstName, String lastName, String gender,
-                                  String address, String phoneNumber, Long salary, String ssn,
-                                  Date dob, Integer yearsExperience, Boolean isOwner, Boolean isActive,
-                                  Integer maxAllocatedPatient, Integer minAllocatedPatient,
-                                  String employeeNumber){
+    public ClinicEmployeeDTO(Integer clinicId, Long clinicEmployeeId, String firstName, String lastName, String gender,
+                             String address, String phoneNumber, Long salary, String ssn,
+                             Date dob, Integer yearsExperience, Boolean isOwner, Boolean isActive,
+                             Integer maxAllocatedPatient, Integer minAllocatedPatient,
+                             String employeeNumber){
         this.clinicId = clinicId;
         this.clinicEmployeeId = clinicEmployeeId;
         this.employeeNumber = employeeNumber;
@@ -91,7 +96,7 @@ public class ClinicEmployeeShiftDTO {
     }
 
 
-    public ClinicEmployeeShiftDTO() {
+    public ClinicEmployeeDTO() {
 
     }
 }

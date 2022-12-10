@@ -32,9 +32,9 @@ public class Illness implements Serializable {
     @Column(name="req_hospitalization")
     @Type(type= "yes_no")
     private Boolean  reqHospitalization;
-
-    @OneToMany(mappedBy = "illness")
-    @JsonIgnore
-    private Set<PatientIllness> patientIllness = new HashSet<>();
+//
+//    @OneToMany(mappedBy = "illness")
+//    @JsonIgnore
+//    private Set<PatientIllness> patientIllness = new HashSet<>();
 
 }

@@ -1,6 +1,7 @@
 package com.medical.mapstruct.mappers;
 
-import com.medical.dto.ClinicEmployeeShiftDTO;
+import com.medical.dto.ClinicEmployeeDTO;
+import com.medical.dto.ClinicPatientDTO;
 import com.medical.dto.EmployeeContractDTO;
 import com.medical.dto.EmployeeNurseGradeDTO;
 import com.medical.dto.EmployeeOccupationDTO;
@@ -9,46 +10,67 @@ import com.medical.model.ClinicEmployee;
 import com.medical.model.EmployeeSpecialty;
 import com.medical.model.NurseGrade;
 import com.medical.model.Occupation;
+import com.medical.model.Patient;
 import com.medical.model.SurgeonContract;
 import javax.annotation.processing.Generated;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2022-12-07T20:28:17-0500",
+    date = "2022-12-09T23:25:56-0500",
     comments = "version: 1.4.2.Final, compiler: javac, environment: Java 19.0.1 (Oracle Corporation)"
 )
 public class IMedicalMapperImpl implements IMedicalMapper {
 
     @Override
-    public ClinicEmployeeShiftDTO clinicEmployeeToClinicEmployeeDto(ClinicEmployee clinicEmployee) {
+    public ClinicEmployeeDTO clinicEmployeeToClinicEmployeeDto(ClinicEmployee clinicEmployee) {
         if ( clinicEmployee == null ) {
             return null;
         }
 
-        ClinicEmployeeShiftDTO clinicEmployeeShiftDTO = new ClinicEmployeeShiftDTO();
+        ClinicEmployeeDTO clinicEmployeeDTO = new ClinicEmployeeDTO();
 
-        clinicEmployeeShiftDTO.setClinicId( clinicEmployee.getClinicId() );
-        clinicEmployeeShiftDTO.setClinicEmployeeId( clinicEmployee.getClinicEmployeeId() );
-        clinicEmployeeShiftDTO.setEmployeeNumber( clinicEmployee.getEmployeeNumber() );
-        clinicEmployeeShiftDTO.setFirstName( clinicEmployee.getFirstName() );
-        clinicEmployeeShiftDTO.setLastName( clinicEmployee.getLastName() );
-        clinicEmployeeShiftDTO.setGender( clinicEmployee.getGender() );
-        clinicEmployeeShiftDTO.setAddress( clinicEmployee.getAddress() );
-        clinicEmployeeShiftDTO.setPhoneNumber( clinicEmployee.getPhoneNumber() );
-        clinicEmployeeShiftDTO.setSalary( clinicEmployee.getSalary() );
-        clinicEmployeeShiftDTO.setSsn( clinicEmployee.getSsn() );
-        clinicEmployeeShiftDTO.setDob( clinicEmployee.getDob() );
-        clinicEmployeeShiftDTO.setYearsExperience( clinicEmployee.getYearsExperience() );
-        clinicEmployeeShiftDTO.setIsOwner( clinicEmployee.getIsOwner() );
-        clinicEmployeeShiftDTO.setIsActive( clinicEmployee.getIsActive() );
-        clinicEmployeeShiftDTO.setMaxAllocatedPatient( clinicEmployee.getMaxAllocatedPatient() );
-        clinicEmployeeShiftDTO.setMinAllocatedPatient( clinicEmployee.getMinAllocatedPatient() );
-        clinicEmployeeShiftDTO.setOccupation( occupationToEmployeeOccupationDTO( clinicEmployee.getOccupation() ) );
-        clinicEmployeeShiftDTO.setContract( surgeonContractToEmployeeContractDTO( clinicEmployee.getContract() ) );
-        clinicEmployeeShiftDTO.setNurseGrade( nurseGradeToEmployeeNurseGradeDTO( clinicEmployee.getNurseGrade() ) );
-        clinicEmployeeShiftDTO.setSpecialty( employeeSpecialtyToEmployeeSpecialtyDTO( clinicEmployee.getSpecialty() ) );
+        clinicEmployeeDTO.setClinicId( clinicEmployee.getClinicId() );
+        clinicEmployeeDTO.setClinicEmployeeId( clinicEmployee.getClinicEmployeeId() );
+        clinicEmployeeDTO.setEmployeeNumber( clinicEmployee.getEmployeeNumber() );
+        clinicEmployeeDTO.setFirstName( clinicEmployee.getFirstName() );
+        clinicEmployeeDTO.setLastName( clinicEmployee.getLastName() );
+        clinicEmployeeDTO.setGender( clinicEmployee.getGender() );
+        clinicEmployeeDTO.setAddress( clinicEmployee.getAddress() );
+        clinicEmployeeDTO.setPhoneNumber( clinicEmployee.getPhoneNumber() );
+        clinicEmployeeDTO.setSalary( clinicEmployee.getSalary() );
+        clinicEmployeeDTO.setSsn( clinicEmployee.getSsn() );
+        clinicEmployeeDTO.setDob( clinicEmployee.getDob() );
+        clinicEmployeeDTO.setYearsExperience( clinicEmployee.getYearsExperience() );
+        clinicEmployeeDTO.setIsOwner( clinicEmployee.getIsOwner() );
+        clinicEmployeeDTO.setIsActive( clinicEmployee.getIsActive() );
+        clinicEmployeeDTO.setMaxAllocatedPatient( clinicEmployee.getMaxAllocatedPatient() );
+        clinicEmployeeDTO.setMinAllocatedPatient( clinicEmployee.getMinAllocatedPatient() );
+        clinicEmployeeDTO.setOccupation( occupationToEmployeeOccupationDTO( clinicEmployee.getOccupation() ) );
+        clinicEmployeeDTO.setContract( surgeonContractToEmployeeContractDTO( clinicEmployee.getContract() ) );
+        clinicEmployeeDTO.setNurseGrade( nurseGradeToEmployeeNurseGradeDTO( clinicEmployee.getNurseGrade() ) );
+        clinicEmployeeDTO.setSpecialty( employeeSpecialtyToEmployeeSpecialtyDTO( clinicEmployee.getSpecialty() ) );
 
-        return clinicEmployeeShiftDTO;
+        return clinicEmployeeDTO;
+    }
+
+    @Override
+    public ClinicPatientDTO clinicPatientToClinicPatientDto(Patient patient) {
+        if ( patient == null ) {
+            return null;
+        }
+
+        ClinicPatientDTO clinicPatientDTO = new ClinicPatientDTO();
+
+        clinicPatientDTO.setPatientId( patient.getPatientId() );
+        clinicPatientDTO.setFirstName( patient.getFirstName() );
+        clinicPatientDTO.setLastName( patient.getLastName() );
+        clinicPatientDTO.setGender( patient.getGender() );
+        clinicPatientDTO.setAddress( patient.getAddress() );
+        clinicPatientDTO.setSsn( patient.getSsn() );
+        clinicPatientDTO.setTelephone( patient.getTelephone() );
+        clinicPatientDTO.setDob( patient.getDob() );
+
+        return clinicPatientDTO;
     }
 
     protected EmployeeOccupationDTO occupationToEmployeeOccupationDTO(Occupation occupation) {
@@ -56,15 +78,12 @@ public class IMedicalMapperImpl implements IMedicalMapper {
             return null;
         }
 
-        int occupationId = 0;
-        String occupation1 = null;
+        EmployeeOccupationDTO employeeOccupationDTO = new EmployeeOccupationDTO();
 
         if ( occupation.getOccupationId() != null ) {
-            occupationId = occupation.getOccupationId();
+            employeeOccupationDTO.setOccupationId( occupation.getOccupationId() );
         }
-        occupation1 = occupation.getOccupation();
-
-        EmployeeOccupationDTO employeeOccupationDTO = new EmployeeOccupationDTO( occupationId, occupation1 );
+        employeeOccupationDTO.setOccupation( occupation.getOccupation() );
 
         return employeeOccupationDTO;
     }

@@ -14,4 +14,11 @@ public class EmployeeOccupationDTO {
         this.occupationId = occupationId;
         this.occupation = occupation;
     }
+
+    public EmployeeOccupationDTO(int occupationId) {
+        this.occupationId = occupationId;
+    }
+
+    public EmployeeOccupationDTO() {
+    }
 }
