@@ -1,8 +1,8 @@
 package com.medical.repository;
 
-import com.medical.model.Illness;
-import com.medical.model.Patient;
 import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.medical.model.Illness;
 
 public interface IllnessRepository  extends JpaRepository<Illness,Long> {
 }
