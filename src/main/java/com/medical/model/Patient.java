@@ -1,25 +1,15 @@
 package com.medical.model;
 
 
-import java.io.Serializable;
-import java.util.Date;
-import java.util.HashSet;
-import java.util.Set;
-
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
-
 import com.fasterxml.jackson.annotation.JsonFormat;
-
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+
+import javax.persistence.*;
+import java.io.Serializable;
+import java.util.Date;
 
 @Entity
 @Table(name="patient", schema= "DMSD_MEDICAL")
@@ -38,9 +28,6 @@ public class Patient implements Serializable {
 
     @Column(name="first_name")
     private String  firstName;
-    
-    @Column(name="name")
-    private String name;
 
     @Column(name="last_name")
     private String  lastName;
@@ -61,11 +48,11 @@ public class Patient implements Serializable {
     @JsonFormat(pattern="MM/dd/yyyy")
     private Date dob;
 
-    @OneToMany(mappedBy = "patient")
-    private Set<PatientIllness> illness = new HashSet<>();
-
-    @OneToMany(mappedBy = "patient")
-    private Set<PatientAllergy> allergy = new HashSet<>();
+//    @OneToMany(mappedBy = "patient")
+//    private Set<PatientIllness> illness = new HashSet<>();
+//
+//    @OneToMany(mappedBy = "patient")
+//    private Set<PatientAllergy> allergy = new HashSet<>();
 
 
 }

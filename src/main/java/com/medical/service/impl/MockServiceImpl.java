@@ -9,6 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.github.javafaker.Faker;
 import com.medical.model.ClinicEmployee;
+import com.medical.model.Occupation;
 import com.medical.model.Patient;
 import com.medical.repository.ClinicEmployeeRepository;
 import com.medical.repository.ClinicPatientRepository;
@@ -42,9 +43,12 @@ public class MockServiceImpl implements MockService {
 				log.info(i.toString());
 				ClinicEmployee c1 = new ClinicEmployee();
 				c1.setAddress(usFaker.address().fullAddress());
-				c1.setEmployeeNumber(Math.abs(new Random().nextInt()));
+				c1.setEmployeeNumber(String.valueOf(Math.abs(new Random().nextInt())));
+				c1.setFirstName(usFaker.name().firstName());
+				c1.setLastName(usFaker.name().lastName());
+				//c1.setOccupation(new Occupation());
 				c1.setClinicId(1);
-				c1.setName(usFaker.name().name());
+				//c1.setName(usFaker.name().name());
 				c1.setGender("MALE");
 				c1.setPhoneNumber(usFaker.phoneNumber().phoneNumber());
 				c1.setSsn(usFaker.idNumber().validSvSeSsn());
@@ -75,7 +79,6 @@ public class MockServiceImpl implements MockService {
 				p1.setAddress(usFaker.address().fullAddress());
 				p1.setFirstName(usFaker.name().firstName());
 				p1.setLastName(usFaker.name().lastName());
-				p1.setName(p1.getLastName()+" ,"+p1.getFirstName());
 				p1.setGender("MALE");
 				p1.setDob(usFaker.date().birthday());
 				p1.setTelephone(usFaker.phoneNumber().phoneNumber());

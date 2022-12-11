@@ -1,12 +1,13 @@
 package com.medical.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 import org.hibernate.annotations.Type;
+
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.HashSet;
-import java.util.Set;
 
 @Entity
 @Table(name="illness", schema= "DMSD_MEDICAL")
@@ -32,9 +33,9 @@ public class Illness implements Serializable {
     @Column(name="req_hospitalization")
     @Type(type= "yes_no")
     private Boolean  reqHospitalization;
-
-    @OneToMany(mappedBy = "illness")
-    @JsonIgnore
-    private Set<PatientIllness> patientIllness = new HashSet<>();
+//
+//    @OneToMany(mappedBy = "illness")
+//    @JsonIgnore
+//    private Set<PatientIllness> patientIllness = new HashSet<>();
 
 }

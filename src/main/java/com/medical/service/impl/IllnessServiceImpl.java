@@ -26,10 +26,16 @@ public class IllnessServiceImpl implements IllnessService {
         });
 
         return foundIllnesses;
-    };
+    }
+
 
     @Override
     public Optional<Illness> getIllnessById(Long id){
         return illnessRepository.findById(id);
+    }
+
+    @Override
+    public List<Illness> getAllIllnesses() {
+       return  illnessRepository.findAll();
     }
 }

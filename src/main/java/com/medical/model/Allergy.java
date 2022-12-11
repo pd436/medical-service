@@ -1,11 +1,11 @@
 package com.medical.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.HashSet;
-import java.util.Set;
 
 @Entity
 @Table(name="allergy", schema= "DMSD_MEDICAL")
@@ -27,9 +27,9 @@ public class Allergy implements Serializable {
     @Column(name="name")
     private String name;
 
-    @OneToMany(mappedBy = "allergy")
-    @JsonIgnore
-    private Set<PatientAllergy> patientAllergy = new HashSet<>();
+//    @OneToMany(mappedBy = "allergy")
+//    @JsonIgnore
+//    private Set<PatientAllergy> patientAllergy = new HashSet<>();
 
 
 }

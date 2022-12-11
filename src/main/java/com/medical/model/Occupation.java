@@ -1,17 +1,15 @@
 package com.medical.model;
-import java.io.Serializable;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
-
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import javax.persistence.*;
+import java.io.Serializable;
+
 @Entity
-@Table(name="OCCUPATION", schema= "DMSD_MEDICAL")
+@Table(name="occupation", schema= "DMSD_MEDICAL")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -20,10 +18,17 @@ public class Occupation implements Serializable{
 	private static final long serialVersionUID = 1L;
 	
 	@Id
-	@Column(name = "OCCUPATION_ID")
+	@Column(name = "occupation_id")
 	private Integer occupationId;
-	
-	@Column(name="OCCUPATION")
+
+	@Column(name="occupation")
 	private String  occupation;
+
+	@OneToOne(mappedBy = "occupation")
+	@JsonIgnore
+	@Transient
+	private ClinicEmployee clinicEmployee;
+
+
 
 }

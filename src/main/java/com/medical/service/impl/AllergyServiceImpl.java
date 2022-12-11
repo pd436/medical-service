@@ -1,11 +1,8 @@
 package com.medical.service.impl;
 
 import com.medical.model.Allergy;
-import com.medical.model.Illness;
 import com.medical.repository.AllergyRepository;
-import com.medical.repository.IllnessRepository;
 import com.medical.service.AllergyService;
-import com.medical.service.IllnessService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -32,7 +29,12 @@ public class AllergyServiceImpl implements AllergyService {
         });
 
         return foundAllergies;
-    };
+    }
+
+    @Override
+    public List<Allergy> getAllAllergies() {
+        return allergyRepository.findAll();
+    }
 
     @Override
     public Optional<Allergy> getAllergyById(Long id){

@@ -13,5 +13,7 @@ public interface AllergyService {
 
     public List<Allergy> getAllergyByIds(List<Allergy> illnesses);
 
+    public List<Allergy> getAllAllergies();
+
     public Optional<Allergy> getAllergyById(Long id);
 }
