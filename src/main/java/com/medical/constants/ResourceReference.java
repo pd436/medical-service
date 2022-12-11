@@ -51,9 +51,4 @@ public interface ResourceReference {
 
 	static final String CLINIC_EMLPLOYEE_SHIFT_BY_EMPL_ID = CLINIC_EMLPLOYEE_DETAILS + "/{employeeId}/shift";
 
-
-
-
-
-	
 }
