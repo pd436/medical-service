@@ -13,7 +13,7 @@ public interface ClinicEmployeeRepository  extends JpaRepository<ClinicEmployee,
 
 
     @Query("select distinct new com.medical.dto.ClinicEmployeeDTO(ce.clinicId,ce.clinicEmployeeId,ce.firstName,ce.lastName,ce.gender, " +
-            "ce.address, ce.phoneNumber, ce.salary, ce.ssn, ce.dob, ce.yearsExperience, ce.isOwner, ce.isActive, ce.shiftId, " +
+            "ce.address, ce.phoneNumber, ce.salary, ce.ssn, ce.dob, ce.yearsExperience, ce.isOwner, ce.isActive, " +
             "ce.maxAllocatedPatient, ce.minAllocatedPatient, " +
             "ce.employeeNumber, es.shiftTypeId,es.shiftDate, est.shiftDesc,est.shiftType) from ClinicEmployee ce " +
             "join EmployeeShift es on es.employeeId = ce.clinicEmployeeId " +

@@ -70,7 +70,7 @@ public class ClinicEmployeeController {
 	@PostMapping( value = ResourceReference.CLINIC_EMLPLOYEE_BY_ID, produces = {MediaType.APPLICATION_JSON_VALUE})
 	public ResponseWrapper<ClinicEmployeeDTO> getEmployeeById(@PathVariable int employeeId){
 		System.out.println(employeeId);
-		ClinicEmployeeDTO response = this.employeeService.getClinicEmployeeDetailsById(employeeId);
+		ClinicEmployeeDTO response = this.employeeService.getClinicEmployeeDetailsDTOById(employeeId);
 		return new ResponseWrapper<>(new Metadata(true,"Reads the employee details by id"),response);
 	}
 

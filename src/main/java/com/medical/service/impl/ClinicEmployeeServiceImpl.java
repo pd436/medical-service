@@ -37,7 +37,7 @@ public class ClinicEmployeeServiceImpl implements ClinicEmployeeService{
 	};
 
 	@Override
-	public ClinicEmployeeDTO getClinicEmployeeDetailsById(int employeeId) {
+	public ClinicEmployeeDTO getClinicEmployeeDetailsDTOById(int employeeId) {
 		ClinicEmployee clinicEmployee = employeeRepository.findById(Long.valueOf(employeeId)).get();
 
 		ClinicEmployeeDTO cesDTO = MAPPER.clinicEmployeeToClinicEmployeeDto(clinicEmployee);
@@ -50,36 +50,29 @@ public class ClinicEmployeeServiceImpl implements ClinicEmployeeService{
 		return cesDTO;
 	}
 
-
-
-//	@Override
-//	public ClinicEmployeeShiftDTO getClinicEmployeeDetailsById(Long employeeId) {
-//		return employeeRepository.getEmployeeById(employeeId);
-//	}
-
 	@Override
-	public ClinicEmployee removeClinicEmployeeById(Long employeeId) {
-		return null;
+	public ClinicEmployee getClinicEmployeeDetailsById(Long employeeId) {
+		return employeeRepository.findById(employeeId).get();
 	}
+
 
 	@Override
 	public List<ClinicEmployeeDTO> getClinicEmployeeDetailsByOccupation(int occupationId) {
 
 		List<ClinicEmployeeDTO> clinicEmployee = employeeRepository.getEmployeeDetailsByOccupation(occupationId);
 
-
 		return clinicEmployee;
 	}
 
 
-//	@Override
-//	public ClinicEmployee removeClinicEmployeeById(Long employeeId) {
-//		Optional<ClinicEmployee> clinicEmployee = getClinicEmployeeDetailsById(employeeId);
-//		clinicEmployee.get().setIsActive(false);
-//		ClinicEmployee clinicEmployeeDeactivated = this.addClinicEmployeeDetails(clinicEmployee.get());
-//		System.out.println(clinicEmployeeDeactivated);
-//		return clinicEmployeeDeactivated;
-//	};
+	@Override
+	public ClinicEmployee removeClinicEmployeeById(Long employeeId) {
+		ClinicEmployee clinicEmployee = this.getClinicEmployeeDetailsById(employeeId);
+		clinicEmployee.setIsActive(false);
+		ClinicEmployee clinicEmployeeDeactivated = this.addClinicEmployeeDetails(clinicEmployee);
+		System.out.println(clinicEmployeeDeactivated);
+		return clinicEmployeeDeactivated;
+	};
 	
 
 }

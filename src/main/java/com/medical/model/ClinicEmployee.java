@@ -81,8 +81,8 @@ public class ClinicEmployee implements Serializable{
 	@Type(type= "yes_no")
 	private Boolean isActive;
 	
-	@Column(name = "shift_id")
-	private Integer shiftId;
+//	@Column(name = "shift_id")
+//	private Integer shiftId;
 	
 	@Column(name = "max_allocated_patient")
 	private Integer maxAllocatedPatient;

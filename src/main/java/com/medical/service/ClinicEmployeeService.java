@@ -12,7 +12,9 @@ public interface ClinicEmployeeService {
 	public ClinicEmployee addClinicEmployeeDetails(ClinicEmployee clinicEmployee);
 
 //	public Optional<ClinicEmployee> getClinicEmployeeDetailsById(Long employeeId);
-	public ClinicEmployeeDTO getClinicEmployeeDetailsById(int employeeId);
+	public ClinicEmployeeDTO getClinicEmployeeDetailsDTOById(int employeeId);
+
+	public ClinicEmployee getClinicEmployeeDetailsById(Long employeeId);
 
 	public ClinicEmployee removeClinicEmployeeById(Long employeeId);
 

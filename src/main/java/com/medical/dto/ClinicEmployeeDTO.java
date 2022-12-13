@@ -50,7 +50,7 @@ public class ClinicEmployeeDTO {
     public ClinicEmployeeDTO(Integer clinicId, Long clinicEmployeeId, String firstName, String lastName, String gender,
                              String address, String phoneNumber, Long salary, String ssn,
                              Date dob, Integer yearsExperience, Boolean isOwner, Boolean isActive,
-                             Integer shiftId, Integer maxAllocatedPatient, Integer minAllocatedPatient,
+                             Integer maxAllocatedPatient, Integer minAllocatedPatient,
                              String employeeNumber, int shiftTypeId, Date shiftDate, String shiftDesc, String shiftType){
         this.clinicId = clinicId;
         this.clinicEmployeeId = clinicEmployeeId;
